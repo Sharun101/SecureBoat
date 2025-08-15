@@ -1,0 +1,69 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="315" border="1">#}
+{#    <tr>#}
+{#      <td width="104">stop </td>#}
+{##}
+{#      <td width="126">&nbsp;</td>#}
+{#    </tr>#}
+{#      {% for i in val %}#}
+{#    <tr>#}
+{#      <td>{{ i.name }}</td>#}
+{##}
+{#      <td><p><a href="/dlete_stop/{{ i.id }}">delete</a></p>#}
+{#      <p>&nbsp;</p>#}
+{#      <p><a href="#"></a></p></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#    <tr>#}
+{#      <td height="23" colspan="3"><a href="/add_stop">add new</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="text-center mb-4">Manage Stops</h3>
+      <form id="form1" name="form1" method="post" action="">
+        <table class="table table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Stop</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in val %}
+            <tr>
+              <td>{{ i.name }}</td>
+              <td>
+                <a href="/dlete_stop/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+            <tr>
+              <td colspan="2" class="text-center">
+                <a href="/add_stop" class="btn btn-primary">Add New</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock %}

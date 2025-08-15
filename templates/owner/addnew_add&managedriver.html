@@ -1,0 +1,199 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form action="/owner_addnew_add_and_managedriver_post" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#  <table width="281" border="1">#}
+{#    <tr>#}
+{#      <td width="166">First name </td>#}
+{#      <td width="99"><input type="text" name="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Last name </td>#}
+{#      <td><input type="text" name="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Place</td>#}
+{#      <td><input type="text" name="textfield3" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Post</td>#}
+{#      <td><input type="text" name="textfield4" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Pin</td>#}
+{#      <td><input type="text" name="textfield5" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Phone</td>#}
+{#      <td><input type="text" name="textfield6" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Image</td>#}
+{#      <td><input type="file" name="file" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Liscence</td>#}
+{#      <td><input type="text" name="textfield7" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td><input type="text" name="textfield8" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Gender</td>#}
+{##}
+{#      <td><input name="radiobutton" type="radio" value="male" />#}
+{#        Male #}
+{#        <input name="radiobutton" type="radio" value="female" />#}
+{#        Female</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>DOB</td>#}
+{#      <td><input type="date" name="textfield10" /></td>#}
+{#    </tr>#}
+{#          <tr>#}
+{#      <td>Username</td>#}
+{#      <td><input type="text" name="textfield11" /></td>#}
+{#    </tr>#}
+{#        <tr>#}
+{#      <td>Password</td>#}
+{#      <td><input type="text" name="textfield12" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><input type="submit" name="Submit" value="Add" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'owner/ownerindex.html' %}
+
+{% block body %}
+<body>
+  <form action="/owner_addnew_add_and_managedriver_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <table class="form-table">
+      <tr>
+        <td class="label">First name</td>
+        <td><input type="text" name="textfield" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Last name</td>
+        <td><input type="text" name="textfield2" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Place</td>
+        <td><input type="text" name="textfield3" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Post</td>
+        <td><input type="text" name="textfield4" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Pin</td>
+        <td><input type="text" name="textfield5" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Phone</td>
+        <td><input type="text" name="textfield6" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Image</td>
+        <td><input type="file" name="file" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Licence</td>
+        <td><input type="text" name="textfield7" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Email</td>
+        <td><input type="text" name="textfield8" class="input-field" required /></td>
+      </tr>
+      <tr>
+        <td class="label">Gender</td>
+        <td>
+          <input name="radiobutton" type="radio" value="male" /> Male
+          <input name="radiobutton" type="radio" value="female" /> Female
+        </td>
+      </tr>
+      <tr>
+        <td class="label">DOB</td>
+        <td><input type="date" name="textfield10" class="input-field" /></td>
+      </tr>
+      <tr>
+        <td class="label">Username</td>
+        <td><input type="text" name="textfield11" class="input-field" /></td>
+      </tr>
+      <tr>
+        <td class="label">Password</td>
+        <td><input type="text" name="textfield12" class="input-field" /></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" name="Submit" value="Add" class="submit-btn" />
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <style>
+
+    .form-table {
+      width: 60%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .form-table .label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .input-field:focus {
+      border-color: #0056b3;
+      outline: none;
+    }
+
+    .submit-btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  </style>
+</body>
+{% endblock %}

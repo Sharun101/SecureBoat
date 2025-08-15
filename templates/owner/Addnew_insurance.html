@@ -1,0 +1,97 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{##}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="owner_Addnew_insurance_post">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>Boat</td>#}
+{#      <td>#}
+{#          <input type="text" name="textfield" />#}
+{#      <select name="textfield">#}
+{#          {% for i in  data %}#}
+{#              <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#          {% endfor %}#}
+{##}
+{#      </select>#}
+{#      </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Policy no </td>#}
+{#      <td><input type="text" name="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Provider</td>#}
+{#      <td><input type="text" name="textfield3" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Date</td>#}
+{#      <td><input type="date" name="textfield4" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Validity</td>#}
+{#      <td><input type="text" name="textfield5" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Type</td>#}
+{#      <td><input type="text" name="textfield6" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><input type="submit" name="Submit" value="Add" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'owner/ownerindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="text-center mb-4">Add New Insurance</h3>
+      <form id="form1" name="form1" method="post" action="owner_Addnew_insurance_post">
+        <div class="mb-3">
+          <label for="boat" class="form-label">Boat</label>
+          <select id="boat" name="textfield" class="form-select">
+            {% for i in data %}
+              <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="policyNo" class="form-label">Policy No</label>
+          <input type="text" id="policyNo" name="textfield2" class="form-control" required  pattern="\d+" title="Policy number must be a number" />
+        </div>
+        <div class="mb-3">
+          <label for="provider" class="form-label">Provider</label>
+          <input type="text" id="provider" name="textfield3" class="form-control" required pattern="[A-Z a-z.]{3,25}" />
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" id="date" name="textfield4" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="validity" class="form-label">Validity</label>
+          <input type="date" id="validity" name="textfield5" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="type" class="form-label">Type</label>
+          <input type="text" id="type" name="textfield6" class="form-control" required />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock %}

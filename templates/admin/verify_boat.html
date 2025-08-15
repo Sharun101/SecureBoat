@@ -1,0 +1,59 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{#  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">#}
+
+</head>
+<body>
+<div>
+      <form id="form1" name="form1" method="post" action="/verify_boat_search">
+  Name
+    <input type="text" name="textfield" />
+    <input type="submit" name="Submit" value="search" />
+</form>
+
+<div class="container">
+  <div class="row">
+    {% for i in value %}
+
+
+         <div class="col-sm-4">
+            <div class="card">
+        <div class="card-image">
+            <img src="{{ i.image.url }}" height="100" width="100" alt="Profile Picture">
+        </div>
+        <div class="card-details">
+            <h3>Owner Name : {{ i.OWNER.firstname }} {{ i.OWNER.lastname }}</h3>
+            <p class="job-title">Boat Name: {{  i.name }}</p>
+            <p class="job-title">Reg No :{{ i.regno  }}</p>
+{#            <p class="contact">{{i.fitness  }}</p>#}
+            <p class="contact">Number of Passengers :{{ i.no_of_passengers}}</p>
+            <p class="contact">Type :{{ i.type}}</p>
+            <p class="contact">Brand :{{ i.brand}}</p>
+            <p class="contact">Description :{{ i.discription}}</p>
+{#            <p class="contact">{{ i.certificate}}</p>#}
+            <p class="contact">
+
+    <a href="accept_boat/{{ i.id }}" class="btn btn-success">Accept</a>
+    <a href="reject_boat/{{ i.id }}" class="btn btn-danger">Reject</a>
+
+            </p>
+        </div>
+    </div> </div>
+
+    {% endfor %}
+
+
+  </div>
+</div>
+    </div>
+</body>
+</html>
+{% endblock %}

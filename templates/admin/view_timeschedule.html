@@ -1,0 +1,64 @@
+
+{##}
+{##}
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<div>#}
+{##}
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    {% for i in value %}#}
+{##}
+{#         <div class="col-sm-4">#}
+{#            <div class="card">#}
+{##}
+{#        <div class="card-details">#}
+{##}
+{#            <p class="job-title">ROUTE : {{ i.ROUTE.fromRoute }}TO {{ i.ROUTE.to }}</p>#}
+{#            <p class="job-title">tripname : {{ i.tripname }}</p>#}
+{##}
+{#            <p class="job-title">Time : {{ i.start_time }}</p>#}
+{#            <p class="job-title">end Time : {{ i.end_time }}</p>#}
+{##}
+{#            <p class="contact">#}
+{##}
+{#    <a href="/view_timeschedule_card/{{ i.id }}" class="btn btn-success">view</a>#}
+{##}
+{#            </p>#}
+{#        </div>#}
+{#    </div> </div>#}
+{##}
+{#    {% endfor %}#}
+{##}
+{##}
+{#  </div>#}
+{#</div>#}
+{#    </div>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      {% for i in value %}
+      <div class="col-sm-4 mb-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title">Route: {{ i.ROUTE.fromRoute }} to {{ i.ROUTE.to }}</h5>
+            <p class="card-text"><strong>Trip Name:</strong> {{ i.tripname }}</p>
+            <p class="card-text"><strong>Start Time:</strong> {{ i.start_time }}</p>
+            <p class="card-text"><strong>End Time:</strong> {{ i.end_time }}</p>
+            <a href="/view_timeschedule_card/{{ i.id }}" class="btn btn-success">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}

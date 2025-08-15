@@ -1,0 +1,171 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<div>#}
+{#    <table width="200" border="1">#}
+{#        {% for i in val %}#}
+{##}
+{#        <tr>#}
+{#            <td>Owner ID </td>#}
+{#            <td>&nbsp;{{ i.regno }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Name</td>#}
+{#            <td>&nbsp;{{ i.name }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Register Number </td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Fitness</td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Number Of Passengers </td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Type</td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Brand</td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Discription</td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Certificate</td>#}
+{#            <td>&nbsp;</td>#}
+{#        </tr>#}
+{#            <tr>#}
+{#            <td><input name="button" type="button" value="Track" /></td>#}
+{#            <td><input name="button" type="button" value="Schedule" /></td>#}
+{#        </tr>#}
+{#{% endfor %}#}
+{#    </table>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+{##}
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{##}
+{##}
+{#<body>#}
+{##}
+{#<div class="container">#}
+{#    <div class="row">#}
+{##}
+{#        {% for i in val %}#}
+{#        <div class="col-sm-4">#}
+{#            <div class="card">#}
+{#                <div class="card-details">#}
+{#                    <h2>{{ i.name }}</h2>#}
+{#                    <p class="detail"><strong>Owner ID:</strong> {{ i.id }}</p>#}
+{#                    <p class="detail"><strong>Register Number:</strong> {{ i.regno }}</p>#}
+{#                    <p class="detail"><strong>Fitness:</strong> {{ i.fitness }}</p>#}
+{#                    <p class="detail"><strong>Number of Passengers:</strong> {{ i.no_of_passengers }}</p>#}
+{#                    <p class="detail"><strong>Type:</strong> {{ i.type }}</p>#}
+{#                    <p class="detail"><strong>Brand:</strong> {{ i.brand }}</p>#}
+{#                    <p class="detail"><strong>Description:</strong> {{ i.discription }}</p>#}
+{#                    <p class="detail"><strong>Certificate:</strong> {{ i.certificate }}</p>#}
+{##}
+{#                    <div class="buttons">#}
+{#                        <div class="btn-group">#}
+{#                            <button class="btn btn-primary">Track</button>#}
+{#                            <button class="btn btn-secondary">Schedule</button>#}
+{#                            <a href="/view_timeschedule/{{ i.id }}" class="btn btn-primary">Schedule</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{##}
+{#    </div>#}
+{#</div>#}
+{##}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{#{% extends 'admin/adminindex.html' %}#}
+{##}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{##}
+{#<div class="container mt-5">#}
+{#    <div class="row">#}
+{#        {% for i in val %}#}
+{#        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">#}
+{#            <div class="card shadow-sm">#}
+{#                <div class="card-body">#}
+{#                    <h5 class="card-title">{{ i.name }}</h5>#}
+{#                    <p class="card-text"><strong>Owner</strong> {{ i.OWNER.firstname }}</p>#}
+{#                    <p class="card-text"><strong>Register Number:</strong> {{ i.regno }}</p>#}
+{#                    <p class="card-text"><strong>Fitness:</strong> {{ i.fitness }}</p>#}
+{#                    <p class="card-text"><strong>Number of Passengers:</strong> {{ i.no_of_passengers }}</p>#}
+{#                    <p class="card-text"><strong>Type:</strong> {{ i.type }}</p>#}
+{#                    <p class="card-text"><strong>Brand:</strong> {{ i.brand }}</p>#}
+{#                    <p class="card-text"><strong>Description:</strong> {{ i.discription }}</p>#}
+{#                    <p class="card-text"><strong>Certificate:</strong> {{ i.certificate }}</p>#}
+{##}
+{#                    <div class="btn-group mt-3">#}
+{#                        <button class="btn btn-primary">Track</button>#}
+{#                        &nbsp;#}
+{#                        &nbsp;#}
+{#                        &nbsp;#}
+{#                        <a href="/view_timeschedule/{{ i.id }}" class="btn btn-secondary">Schedule</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#</body>#}
+{#</html>#}
+{##}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      {% for i in val %}
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-lg border-0 rounded-lg">
+          <div class="card-header bg-primary text-white text-center">
+            <h5 class="mb-0">{{ i.name }}</h5>
+          </div>
+          <div class="card-body p-4">
+            <p class="card-text"><strong>Owner:</strong> {{ i.OWNER.firstname }}</p>
+            <p class="card-text"><strong>Register Number:</strong> {{ i.regno }}</p>
+            <p class="card-text"><strong>Fitness:</strong> {{ i.fitness }}</p>
+            <p class="card-text"><strong>Number of Passengers:</strong> {{ i.no_of_passengers }}</p>
+            <p class="card-text"><strong>Type:</strong> {{ i.type }}</p>
+            <p class="card-text"><strong>Brand:</strong> {{ i.brand }}</p>
+            <p class="card-text"><strong>Description:</strong> {{ i.discription }}</p>
+            <p class="card-text"><strong>Certificate:</strong> {{ i.certificate }}</p>
+            <div class="d-flex justify-content-between mt-4">
+{#              <button class="btn btn-outline-primary">Track</button>#}
+              <a href="/view_timeschedule/{{ i.id }}#a" class="btn btn-outline-secondary">Schedule</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}

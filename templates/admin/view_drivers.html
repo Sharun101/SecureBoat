@@ -1,0 +1,98 @@
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{##}
+{##}
+{##}
+{#<body>#}
+{#<div>#}
+{#      <form id="form1" name="form1" method="post" action="/view_drivers_search">#}
+{#  Name#}
+{#    <input type="text" name="Input" />#}
+{#    <input type="submit" name="Submit" value="search" />#}
+{#</form>#}
+{##}
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    {% for i in value %}#}
+{##}
+{##}
+{#         <div class="col-sm-4">#}
+{#            <div class="card">#}
+{#        <div class="card-image">#}
+{#            <img src="{{ i.image.url }}" alt="Profile Picture">#}
+{#        </div>#}
+{#        <div class="card-details">#}
+{#           <h2><img src="{{  i.image.url}}" height="100" width="100"></h2>#}
+{#            <p class="job-title">{{ i.firstname }} {{  i.lastname }}</p>#}
+{#            <p class="contact">{{i.place }}</p>#}
+{#            <p class="contact">{{ i.post}}</p>#}
+{#            <p class="contact">{{ i.pin}}</p>#}
+{#            <p class="contact">{{ i.phno }}</p>#}
+{#            <p class="contact">{{  i.email}}</p>#}
+{#            <p class="contact">{{i.gender }}</p>#}
+{#            <p class="contact">{{i.dob }}</p>#}
+{#            <p class="contact">{{ i.license.url }}</p>#}
+{#      <p class="contact"></p>#}
+{#            </p>#}
+{#        </div>#}
+{#    </div> </div>#}
+{##}
+{#    {% endfor %}#}
+{##}
+{##}
+{#  </div>#}
+{#</div>#}
+{#    </div>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <!-- Form for Search -->
+    <form id="form1" name="form1" method="post" action="/view_drivers_search" class="mb-4">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="input-group">
+            <input type="text" name="Input" class="form-control" placeholder="Enter Name" />
+            <div class="input-group-append">
+              <input type="submit" name="Submit" value="Search" class="btn btn-primary" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- Driver Cards Display -->
+    <div class="row">
+      {% for i in value %}
+        <div class="col-sm-4 mb-4">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">
+                <img src="{{ i.image.url }}" class="rounded-circle" height="50" width="50" alt="Profile Picture">
+                {{ i.firstname }} {{ i.lastname }}
+              </h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled">
+                <li><strong>Place:</strong> {{ i.place }}</li>
+                <li><strong>Post:</strong> {{ i.post }}</li>
+                <li><strong>PIN:</strong> {{ i.pin }}</li>
+                <li><strong>Phone Number:</strong> {{ i.phno }}</li>
+                <li><strong>Email:</strong> {{ i.email }}</li>
+                <li><strong>Gender:</strong> {{ i.gender }}</li>
+                <li><strong>Date of Birth:</strong> {{ i.dob }}</li>
+                <li><strong>Lisence:</strong> {{ i.license }}</li>
+{#                <li><strong>License:</strong> <a href="{{ i.license.url }}" target="_blank">View License</a></li>#}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}

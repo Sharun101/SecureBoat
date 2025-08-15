@@ -1,0 +1,79 @@
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<div>#}
+{##}
+{##}
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    {% for i in value %}#}
+{##}
+{##}
+{##}
+{#         <div class="col-sm-4">#}
+{#            <div class="card">#}
+{##}
+{#        <div class="card-details">#}
+{#            <p>User :{{  i.USER.firstname }}{{  i.USER.lastname }}</p>#}
+{#            <p class="job-title">Boat : {{ i.BOAT.name  }}</p>#}
+{#            <p class="job-title">Date : {{ i.date  }}</p>#}
+{#            <p class="job-title">Complaint : {{ i.complaint  }}</p>#}
+{#            <p class="job-title">Reply :#}
+{##}
+{#                {% if i.reply == "pending" %}#}
+{#                        <a href="reply/{{ i.id }}" class="btn btn-success">Reply</a>#}
+{#                    {% else %}#}
+{##}
+{##}
+{##}
+{#                {{ i.reply  }}#}
+{#                {% endif %}#}
+{#            </p>#}
+{##}
+{##}
+{##}
+{#        </div>#}
+{#    </div> </div>#}
+{##}
+{#    {% endfor %}#}
+{##}
+{##}
+{#  </div>#}
+{#</div>#}
+{#    </div>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      {% for i in value %}
+        <div class="col-sm-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>User:</strong> {{ i.USER.firstname }} {{ i.USER.lastname }}
+              </h5>
+              <p class="card-text"><strong>Boat:</strong> {{ i.BOAT.name }}</p>
+              <p class="card-text"><strong>Date:</strong> {{ i.date }}</p>
+              <p class="card-text"><strong>Complaint:</strong> {{ i.complaint }}</p>
+
+              <p class="card-text"><strong>Reply:</strong>
+                {% if i.reply == "pending" %}
+                  <a href="reply/{{ i.id }}" class="btn btn-success btn-sm">Reply</a>
+                {% else %}
+                  <span>{{ i.reply }}</span>
+                {% endif %}
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}

@@ -1,0 +1,66 @@
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<div>#}
+{##}
+{##}
+{#<div class="container">#}
+{#  <div class="row">#}
+{#    {% for i in value %}#}
+{##}
+{##}
+{##}
+{#         <div class="col-sm-4">#}
+{#            <div class="card">#}
+{##}
+{#        <div class="card-details">#}
+{#            <p class="job-title">Driver :{{  i.DRIVER.firstname }}{{  i.DRIVER.lastname }}</p>#}
+{#            <p class="job-title">Date : {{ i.date  }}</p>#}
+{#            <p class="job-title">Time : {{ i.time  }}</p>#}
+{#            <p class="job-title">Details : {{ i.details  }}</p>#}
+{#            <p class="job-title">Status : {{ i.status  }}</p>#}
+{##}
+{##}
+{##}
+{#        </div>#}
+{#    </div> </div>#}
+{##}
+{#    {% endfor %}#}
+{##}
+{##}
+{#  </div>#}
+{#</div>#}
+{#    </div>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      {% for i in value %}
+        <div class="col-sm-4 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>Driver:</strong> {{ i.DRIVER.firstname }} {{ i.DRIVER.lastname }}
+              </h5>
+              <p class="card-text"><strong>Date:</strong> {{ i.date }}</p>
+              <p class="card-text"><strong>Time:</strong> {{ i.time }}</p>
+              <p class="card-text"><strong>Details:</strong> {{ i.details }}</p>
+              <p class="card-text"><strong>Status:</strong>
+                <span class="badge {% if i.status == 'completed' %}bg-success{% elif i.status == 'pending' %}bg-warning{% else %}bg-secondary{% endif %}">
+                  {{ i.status }}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}

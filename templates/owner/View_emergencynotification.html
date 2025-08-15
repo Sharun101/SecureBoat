@@ -1,0 +1,60 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>Driver</td>#}
+{#      <td>Notification</td>#}
+{#      <td>Date&time</td>#}
+{#    </tr>#}
+{#        {% for i in val %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.DRIVER.firstname }}</td>#}
+{#      <td>&nbsp;{{ i.details }}</td>#}
+{#      <td>&nbsp;{{ i.date }}{{ i.time }}</td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+{% extends 'owner/ownerindex.html' %}
+{% block body %}
+<body>
+<div class="container mt-4">
+    <form id="form1" name="form1" method="post" action="" class="mb-3">
+        <div class="input-group mb-3">
+            <input type="text" name="textfield" class="form-control" placeholder="Enter Name" />
+            <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Driver</th>
+                <th>Notification</th>
+                <th>Date & Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in val %}
+            <tr>
+                <td>{{ i.DRIVER.firstname }}</td>
+                <td>{{ i.details }}</td>
+                <td>{{ i.date }} {{ i.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,80 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/owner_sendreply_post">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>User</td>#}
+{#      <td>boat</td>#}
+{#      <td>Complaint</td>#}
+{#      <td>Date</td>#}
+{#      <td>Reply</td>#}
+{#    </tr>#}
+{#      {% for i in val %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.USER }}</td>#}
+{#      <td>&nbsp;{{ i.BOAT }}</td>#}
+{#      <td>&nbsp;{{ i.complaint }}</td>#}
+{#      <td>&nbsp;{{ i.date }}</td>#}
+{#      <td>#}
+{#          {% if i.reply == 'pending' %}#}
+{#          <a href="/owner_sendreply/{{ i.id }}">Reply</a>#}
+{#          {% else %}#}
+{#          {{ i.reply }}#}
+{#          {% endif %}#}
+{#      </td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'owner/ownerindex.html' %}
+{% block body %}
+<body>
+<div class="container mt-4">
+    <form id="form1" name="form1" method="post" action="/owner_sendreply_post" class="mb-3">
+        <div class="input-group mb-3">
+            <input type="text" name="textfield" class="form-control" placeholder="Enter Name" />
+            <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>User</th>
+                <th>Boat</th>
+                <th>Complaint</th>
+                <th>Date</th>
+                <th>Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in val %}
+            <tr>
+                <td>{{ i.USER.firstname }}</td>
+                <td>{{ i.BOAT.name }}</td>
+                <td>{{ i.complaint }}</td>
+                <td>{{ i.date }}</td>
+                <td>
+                    {% if i.reply == 'pending' %}
+                    <a href="/owner_sendreply/{{ i.id }}" class="btn btn-warning btn-sm">Reply</a>
+                    {% else %}
+                    {{ i.reply }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+{% endblock %}

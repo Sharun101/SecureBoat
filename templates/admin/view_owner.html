@@ -1,0 +1,123 @@
+{##}
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{##}
+{##}
+{#  <meta name="viewport" content="width=device-width, initial-scale=1">#}
+{##}
+{##}
+{#</head>#}
+{#<body>#}
+{#<div>#}
+{#    <form action="/admin_search_owner" method="post">#}
+{#        <table class="table">#}
+{#            <tr>#}
+{#                <td>#}
+{##}
+{#                </td> <td>#}
+{#                    <input name="Input" type="text" placeholder='Search by Name' value="{{ n }}"  class="form-control" />#}
+{#                </td> <td>#}
+{#                     <input type="submit" name="Submit" value="search" class="btn btn-primary"/>#}
+{#                </td>#}
+{#            </tr>#}
+{#        </table>#}
+{#        <p>#}
+{##}
+{##}
+{#        </p>#}
+{#    </form>#}
+{##}
+{##}
+{#<div class="container">#}
+{#  <div class="row">#}
+{##}
+{#        {% for i in val %}#}
+{# <div class="col-sm-4">#}
+{#            <div class="card">#}
+{#        <div class="card-image">#}
+{#            <img src="{{ i.image.url }}" alt="Profile Picture">#}
+{#        </div>#}
+{#        <div class="card-details">#}
+{#            <h2>{{ i.firstname }} {{ i.lastname }}</h2>#}
+{#            <p class="job-title">{{ i.gender }}-{{ i.dob }}</p>#}
+{#            <p class="job-title">{{ i.place }}{{ i.post }}{{ i.pin }}&nbsp;</p>#}
+{#            <p class="contact">Email: {{ i.email }}</p>#}
+{#            <p class="contact">Phone: {{ i.phno }}</p>#}
+{#            <p class="contact">#}
+{#         {% if i.LOGIN.utype == 'pending' %}#}
+{#    <a href="accept_owner/{{ i.LOGIN.id }}" class="btn btn-success">Accept</a>#}
+{#    <a href="reject_owner/{{ i.LOGIN.id }}" class="btn btn-danger">Reject</a>#}
+{#         {% elif i.LOGIN.utype == 'user' %}#}
+{#    <span>Accepted</span>#}
+{#         {% elif i.LOGIN.utype == 'rejected' %}#}
+{#    <span>Rejected</span>#}
+{#         {% else %}#}
+{#    <span>{{ i.LOGIN.utype }}</span>#}
+{#          {% endif %}#}
+{##}
+{#            </p>#}
+{#        </div>#}
+{#    </div> </div>#}
+{#        {% endfor %}#}
+{##}
+{#  </div>#}
+{#</div>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container mt-4">
+    <form action="/admin_search_owner" method="post" class="mb-4">
+        <div class="input-group">
+            <input name="Input" type="text" placeholder='Search by Name' value="{{ n }}" class="form-control" />
+            <button type="submit" name="Submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <div class="row">
+        {% for i in val %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="{{ i.image.url }}" class="card-img-top" alt="Profile Picture">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.firstname }} {{ i.lastname }}</h5>
+                    <p class="card-text"><strong>Gender:</strong> {{ i.gender }} - {{ i.dob }}</p>
+                    <p class="card-text"><strong>Location:</strong> {{ i.place }}, {{ i.post }}, {{ i.pin }}</p>
+                    <p class="card-text"><strong>Email:</strong> {{ i.email }}</p>
+                    <p class="card-text"><strong>Phone:</strong> {{ i.phno }}</p>
+                    <div class="d-flex justify-content-between">
+                        {% if i.LOGIN.utype == 'pending' %}
+                            <a href="accept_owner/{{ i.LOGIN.id }}" class="btn btn-success">Accept</a>
+                            <a href="reject_owner/{{ i.LOGIN.id }}" class="btn btn-danger">Reject</a>
+                        {% elif i.LOGIN.utype == 'user' %}
+                            <span class="badge bg-success">Accepted</span>
+                        {% elif i.LOGIN.utype == 'rejected' %}
+                            <span class="badge bg-danger">Rejected</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ i.LOGIN.utype }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'admin/adminindex.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Assigned Boats & Tracking</h2>
+    <div class="row">
+        {% for boat in boats %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h5 class="mb-0">{{ boat.boat_name }}</h5>
+                </div>
+                <div class="card-body text-center">
+                    <p><strong>Register No:</strong> {{ boat.boat_regno }}</p>
+                    <p><strong>Driver:</strong> {{ boat.driver_name }}</p>
+                    <p><strong>Status:</strong>
+                        <span class="badge {% if boat.status == 'Active' %} bg-success {% else %} bg-danger {% endif %}">
+                            {{ boat.status }}
+                        </span>
+                    </p>
+
+                    <!-- Driver Image -->
+{#                    {% if boat.driver_image %}#}
+{#                    <img src="{{ boat.driver_image.url }}" width="100" height="100" class="rounded-circle mb-3">#}
+{#                    {% else %}#}
+{#                    <p>No Image</p>#}
+{#                    {% endif %}#}
+{##}
+{#                    <p><strong>Latitude:</strong> {{ boat.latitude }}</p>#}
+{#                    <p><strong>Longitude:</strong> {{ boat.longitude }}</p>#}
+
+                    <div class="d-flex justify-content-between mt-3">
+                        {% if boat.latitude != "Not Available" and boat.longitude != "Not Available" %}
+                        <a href="https://www.google.com/maps?q={{ boat.latitude }},{{ boat.longitude }}"
+                           target="_blank" class="btn btn-outline-primary">Track</a>
+                        {% else %}
+                        <button class="btn btn-outline-danger" disabled>Unavailable</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

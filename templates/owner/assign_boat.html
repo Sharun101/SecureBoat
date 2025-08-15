@@ -1,0 +1,53 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/assign_boat_post">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td><label>#}
+{#        <select name="select">#}
+{#            {% for i in val %}#}
+{#            <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><label>#}
+{#        <input type="submit" name="Submit" value="Submit" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'owner/ownerindex.html' %}
+{% block body %}
+<body>
+  <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="text-center mb-4">Assign Boat</h3>
+      <form id="form1" name="form1" method="post" action="/assign_boat_post">
+        <div class="mb-3">
+          <label for="selectBoat" class="form-label">Select a Boat</label>
+          <select name="select" id="selectBoat" class="form-select">
+            {% for i in val %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock %}

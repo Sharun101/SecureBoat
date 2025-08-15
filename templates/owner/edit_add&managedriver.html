@@ -1,0 +1,84 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'owner/ownerindex.html' %}
+{% block body %}
+<body>
+<form action="/owner_edit_add_and_manage_driver_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="281" border="1">
+    <tr>
+      <td width="166">First name </td>
+      <td width="99"><input type="text" name="textfield" value="{{ val.firstname }}" /></td>
+    </tr>
+    <tr>
+      <td>Last name </td>
+      <td><input type="text" name="textfield2" value="{{ val.lastname }}" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield3" value="{{ val.place }}" /></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><input type="text" name="textfield4" value="{{ val.post }}" /></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><input type="text" name="textfield5" value="{{ val.pin }}" /></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><input type="text" name="textfield6" value="{{ val.phno }}" /></td>
+    </tr>
+       <tr>
+      <td>Image</td>
+      <td><img src="{{ val.image.url }}" width="100" height="100" alt=""/></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td><input type="file" name="file" /></td>
+    </tr>
+    <tr>
+      <td>Liscence</td>
+      <td><input type="text" name="textfield7" value="{{ val.license }}" /></td>
+    </tr>
+    <tr>
+  <td>Email</td>
+  <td><input type="text" name="textfield8" value="{{ val.email }}" /></td>
+</tr>
+<tr>
+  <td>Gender</td>
+  <td>
+    <input
+      name="radiobutton"
+      type="radio"
+      value="male"
+      {% if val.gender == 'male' %} checked {% endif %}
+    />
+    Male
+    <input
+      name="radiobutton"
+      type="radio"
+      value="female"
+      {% if val.gender == 'female' %} checked {% endif %}
+    />
+    Female
+  </td>
+</tr>
+
+    <tr>
+      <td>DOB</td>
+      <td><input type="date" name="textfield10" value="{{ val.dob|date:'Y-m-d' }}" /></td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><input type="submit" name="Submit" value="Add" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

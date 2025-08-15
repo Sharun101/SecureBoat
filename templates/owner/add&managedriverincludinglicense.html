@@ -1,0 +1,113 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="678" border="1">#}
+{#    <tr>#}
+{#      <td colspan="12">Name#}
+{#      <input type="text" name="textfield" />      <input type="submit" name="Submit" value="Submit" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td width="71"> name </td>#}
+{##}
+{#      <td width="51">Address</td>#}
+{#      <td width="32">Image</td>#}
+{#      <td width="51">Liscense</td>#}
+{##}
+{#      <td width="51">Phone</td>#}
+{#      <td width="51">Gender</td>#}
+{#        <td width="51">Email</td>#}
+{#      <td width="51">DOB</td>#}
+{#      <td width="51">&nbsp;</td>#}
+{#      <td width="51">&nbsp;</td>#}
+{#      <td width="51">&nbsp;</td>#}
+{##}
+{#    </tr>#}
+{#      {% for i in val  %}#}
+{##}
+{##}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.firstname}}{{ i.lastname }}</td>#}
+{#      <td>&nbsp;{{ i.place }}{{ i.post }}{{ i.pin }}</td>#}
+{#      <td>&nbsp;<img src="{{ i.image.url }}" alt="" width="100px" height="100px"/></td>#}
+{#              <td>&nbsp;{{ i.license }} </td>#}
+{#      <td>&nbsp;{{ i.phno }}</td>#}
+{#          <td>&nbsp;{{ i.gender }}</td>#}
+{#            <td>&nbsp;{{ i.email }}</td>#}
+{#              <td>&nbsp;{{ i.dob }}</td>#}
+{##}
+{##}
+{#      <td><p><a href="/owner_edit_add_and_manage_driver/{{ i.id }}">Edit</a></p>#}
+{#      <p><a href="/owner_delete_driver/{{ i.id }}">Delete</a></p></td>#}
+{#      <td>#}
+{#          <a href="/assign_boat/{{ i.id }}">Assign</a></td>#}
+{#    <td>#}
+{#          <a href="/owner_send_notification_driver/{{ i.id }}">send notification</a></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#    <tr>#}
+{#      <td colspan="12"><a href="/owner_addnew_add_and_managedriver">Add driver</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+{% extends 'owner/ownerindex.html' %}
+{% block body %}
+<body>
+<div class="container mt-4">
+    <form id="form1" name="form1" method="post" action="/owner_search_driver#a" class="mb-3">
+        <div class="input-group mb-3">
+            <input type="text" name="textfield" class="form-control" placeholder="Enter Name" value="{{ firstname }}" />
+            <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Image</th>
+                <th>License</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in val %}
+            <tr>
+                <td>{{ i.firstname }} {{ i.lastname }}</td>
+                <td>{{ i.place }} {{ i.post }} {{ i.pin }}</td>
+                <td><img src="{{ i.image.url }}" class="img-thumbnail" width="100" height="100" alt="Driver Image" /></td>
+                <td>{{ i.license }}</td>
+                <td>{{ i.phno }}</td>
+                <td>{{ i.gender }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.dob }}</td>
+                <td>
+                    <a href="/owner_edit_add_and_manage_driver/{{ i.id }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/owner_delete_driver/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/assign_boat/{{ i.id }}" class="btn btn-secondary btn-sm">Assign</a>
+                    <a href="/owner_send_notification_driver/{{ i.id }}" class="btn btn-info btn-sm">Send Notification</a>
+                    <a href="" class="btn btn-info btn-sm">Track</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/owner_addnew_add_and_managedriver" class="btn btn-primary">Add Driver</a>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,210 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form action="/owner_add_new_post" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>Name</td>#}
+{#      <td><input type="text" name="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Image</td>#}
+{#      <td><input type="file" name="file" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Reg no </td>#}
+{#      <td><input type="text" name="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Fitness</td>#}
+{#      <td><input type="file" name="file2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>No of passengers </td>#}
+{#      <td><input type="text" name="textfield3" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Type</td>#}
+{#      <td><input type="text" name="textfield4" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Brand</td>#}
+{#      <td><input type="text" name="textfield5" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Discription</td>#}
+{#      <td><textarea name="textarea"></textarea></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Certificate</td>#}
+{#      <td><input type="file" name="file3" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>&nbsp;</td>#}
+{#      <td><input type="submit" name="Submit" value="Save" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+{##}
+{#{% extends 'owner/ownerindex.html' %}#}
+{#{% block body %}#}
+{#<body>#}
+{#  <form action="/owner_add_new_post" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#    <table>#}
+{#      <tr>#}
+{#        <td>Name</td>#}
+{#        <td><input type="text" name="textfield" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Image</td>#}
+{#        <td><input type="file" name="file" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Reg no</td>#}
+{#        <td><input type="text" name="textfield2" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Fitness</td>#}
+{#        <td><input type="file" name="file2" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>No of passengers</td>#}
+{#        <td><input type="text" name="textfield3" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Type</td>#}
+{#        <td><input type="text" name="textfield4" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Brand</td>#}
+{#        <td><input type="text" name="textfield5" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Description</td>#}
+{#        <td><textarea name="textarea"></textarea></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>Certificate</td>#}
+{#        <td><input type="file" name="file3" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td></td>#}
+{#        <td><input type="submit" name="Submit" value="Save" /></td>#}
+{#      </tr>#}
+{#    </table>#}
+{#  </form>#}
+{#</body>#}
+{#{% endblock %}#}
+{% extends 'owner/ownerindex.html' %}
+{% block body %}
+<body>
+  <form action="/owner_add_new_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <table class="form-table">
+      <tr>
+        <td><label for="name">Name</label></td>
+        <td><input type="text" name="textfield" id="name" class="form-input" required pattern="[A-Z a-z.]{3,25}" /></td>
+      </tr>
+      <tr>
+        <td><label for="image">Image</label></td>
+        <td><input type="file" name="file" id="image" class="form-input" required /></td>
+      </tr>
+      <tr>
+        <td><label for="regno">Reg No</label></td>
+        <td><input type="text" name="textfield2" id="regno" class="form-input" required pattern="[0-9]+" /></td>
+      </tr>
+      <tr>
+        <td><label for="fitness">Fitness</label></td>
+        <td><input type="file" name="file2" id="fitness" class="form-input" required /></td>
+      </tr>
+      <tr>
+        <td><label for="passengers">No of Passengers</label></td>
+        <td><input type="text" name="textfield3" id="passengers" class="form-input" required pattern="[0-9]+" /></td>
+      </tr>
+      <tr>
+        <td><label for="type">Type</label></td>
+        <td><input type="text" name="textfield4" id="type" class="form-input" required /></td>
+      </tr>
+      <tr>
+        <td><label for="brand">Brand</label></td>
+        <td><input type="text" name="textfield5" id="brand" class="form-input" required /></td>
+      </tr>
+      <tr>
+        <td><label for="description">Description</label></td>
+        <td><textarea name="textarea" id="description" class="form-textarea" required></textarea></td>
+      </tr>
+      <tr>
+        <td><label for="certificate">Certificate</label></td>
+        <td><input type="file" name="file3" id="certificate" class="form-input" required /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" name="Submit" value="Save" class="form-submit" /></td>
+      </tr>
+    </table>
+  </form>
+
+  <style>
+
+
+    .form-table {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-table td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    .form-table input[type="text"],
+    .form-table input[type="file"],
+    .form-table textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .form-table input[type="submit"] {
+      width: auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .form-table input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .form-table label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .form-textarea {
+      height: 150px;
+    }
+  </style>
+</body>
+{% endblock %}
